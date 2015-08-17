@@ -1,0 +1,40 @@
+{{#if model.expert_categories}}
+  <div class='experts-container'>
+    <table class='experts-table'>
+      <thead>
+        <tr>
+          <th class='experts-table-th'>            </th>
+          <th class='experts-table-th'>Posts       </th>
+          <th class='experts-table-th'>Views       </th>
+          <th class='experts-table-th'>Likes       </th>
+          <th class='experts-table-th'>Top Answers </th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each category in model.expert_categories}}
+          <tr>
+            <td class='experts-table-td'>
+              {{category.category}}
+            </td>
+            <td class='experts-table-td'>
+              {{category.posts}}
+            </td>
+            <td class='experts-table-td'>
+              {{category.views}}
+            </td>
+            <td class='experts-table-td'>
+              {{category.likes}}
+            </td>
+            <td class='experts-table-td'>
+              {{category.top_answers}}
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+{{else}}
+  <div class="alert alert-info">
+    No expert categories found.
+  </div>
+{{/if}}
