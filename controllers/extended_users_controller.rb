@@ -29,9 +29,7 @@ UsersController.class_eval do
             views_count+= topic.views
             likes_count+= topic.posts.sum(:like_count)
           end
-          unless most_liked_posts.empty?
-            response[:expert_categories] << { category: cat.name, posts: posts_count, views: views_count, likes: likes_count, top_answers: most_liked_posts.count }
-          end
+          response[:expert_categories] << { category: cat.name, posts: posts_count, views: views_count, likes: likes_count, top_answers: most_liked_posts.count }
         end
       end
     end
