@@ -16,7 +16,7 @@ export default {
       },
 
       model: function() {
-        var username = Discourse.User.current().get('username');
+        var username = this.modelFor('user').get('username');
         var group = Discourse.SiteSettings.expert_group;
         return Ember.$.getJSON('/users/expert_categories.json?username='+username+'&group='+group);
       },
