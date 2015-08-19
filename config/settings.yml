@@ -2,3 +2,7 @@ experts:
   expert_group:
     default: ''
     client: ''
+categories:
+  redirect_link:
+    default: ''
+    client: ''

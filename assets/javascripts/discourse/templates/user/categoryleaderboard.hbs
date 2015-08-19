@@ -3,7 +3,7 @@
     <table class='experts-table'>
       <thead>
         <tr>
-          <th class='experts-table-th'>            </th>
+          <th class='experts-table-th'>Category    </th>
           <th class='experts-table-th'>Posts       </th>
           <th class='experts-table-th'>Views       </th>
           <th class='experts-table-th'>Likes       </th>
@@ -14,7 +14,9 @@
         {{#each category in model.expert_categories}}
           <tr>
             <td class='experts-table-td'>
-              {{category.category}}
+              <span class="category">
+                {{category-link category.category}}
+              </span>
             </td>
             <td class='experts-table-td'>
               {{category.posts}}

@@ -21,7 +21,6 @@ UsersController.class_eval do
           views_count = 0
           likes_count = 0
           most_liked_posts = []
-
           cat.topics.where(user_id: user.id).each do |topic|
             most_liked_post = topic.posts.joins(user: [group_users:[:group]]).where(groups: {name: params[:group]}).order(like_count: :desc).first
             most_liked_posts << most_liked_post

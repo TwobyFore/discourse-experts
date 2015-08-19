@@ -1,8 +1,8 @@
 # name: discourse_experts
 # about: show expert categories in profile
 # authors: Vairix
-
 register_asset "javascripts/discourse/templates/user/categoryleaderboard.hbs"
+register_asset "javascripts/discourse/helpers/category-link.js.es6"
 register_asset "stylesheets/profile_expert.css"
 
 after_initialize do

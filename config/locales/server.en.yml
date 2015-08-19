@@ -1,3 +1,4 @@
 en:
   site_settings:
     expert_group: "Name of the group whose members can be experts"
+    redirect_link: "URL for categories redirect (include http(s)://). Category slug will be appended."
