@@ -21,10 +21,10 @@ UsersController.class_eval do
           views_count = 0
           likes_count = 0
           most_liked_posts = []
-          cat.topics.where(user_id: user.id).each do |topic|
-            most_liked_post = topic.posts.joins(user: [group_users:[:group]]).where(groups: {name: params[:group]}).order(like_count: :desc).first
-            most_liked_posts << most_liked_post
-            posts_count+= posts_count = Post.joins(:topic).where(user_id: user.id, topic_id: topic.id, topics: { category_id: cat.id }).count
+          cat.topics.each do |topic|
+            most_liked_post = topic.posts.order(like_count: :desc).first
+            most_liked_posts << most_liked_post if most_liked_post.user_id == user.id
+            posts_count+= posts_count = topic.posts.where(user_id: user.id).count
             views_count+= topic.views
             likes_count+= topic.posts.sum(:like_count)
           end
