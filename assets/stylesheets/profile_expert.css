@@ -3,13 +3,13 @@
 }
 
 .experts-table{
-  border: none;
+  width: 100%;
 }
 
 .experts-table-th {
-  border: none;
+  text-align: left;
 }
 
-.experts-table-td{
+.experts-table-td {
   border: none;
 }
