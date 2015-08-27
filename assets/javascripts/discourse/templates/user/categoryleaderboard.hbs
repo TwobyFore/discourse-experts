@@ -19,16 +19,16 @@
               </span>
             </td>
             <td class='experts-table-td'>
-              {{category.posts}}
+              <span class='experts-posts'>Posts</span> {{category.posts}}
             </td>
             <td class='experts-table-td'>
-              {{category.views}}
+              <span class='experts-views'>Views</span> {{category.views}}
             </td>
             <td class='experts-table-td'>
-              {{category.likes}}
+              <span class='experts-likes'><i class='fa fa-heart'></i></span> {{category.likes}}
             </td>
             <td class='experts-table-td'>
-              {{category.top_answers}}
+              <span class='experts-topanswers'>Top Answers</span> {{category.top_answers}}
             </td>
           </tr>
         {{/each}}
@@ -37,6 +37,6 @@
   </div>
 {{else}}
   <div class="alert alert-info">
-    No expert categories found.
+    No expert topics found.
   </div>
 {{/if}}
