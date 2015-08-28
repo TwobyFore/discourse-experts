@@ -4,7 +4,8 @@ export default Ember.Component.extend({
 
   badge: function() {
     var badge = Discourse.Badge.create({});
-    Discourse.User.findByUsername('dfpfernandez').then(function(res){
+    var username = window.location.pathname.split('/')[2];
+    Discourse.User.findByUsername(username).then(function(res){
       res.featured_user_badges.forEach(function(b){
         var badge_aux = Discourse.Badge.createFromJson(b);
         if (badge_aux.name.indexOf('brokerage') == 0){

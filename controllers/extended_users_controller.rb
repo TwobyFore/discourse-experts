@@ -25,13 +25,15 @@ UsersController.class_eval do
             most_liked_post = topic.posts.order(like_count: :desc).first
             most_liked_posts << most_liked_post if most_liked_post.user_id == user.id
             posts_count+= posts_count = topic.posts.where(user_id: user.id).count
-            views_count+= topic.views
-            likes_count+= topic.posts.sum(:like_count)
+            likes_count+= topic.posts.where(user_id: user.id).sum(:like_count)
           end
-          response[:expert_categories] << { category: cat.name, posts: posts_count, views: views_count, likes: likes_count, top_answers: most_liked_posts.count }
+          rank = target_list.find_index { |u| u.user_id = user.id }
+          response[:expert_categories] << { category: cat.name, rank: rank+1, posts: posts_count, likes: likes_count, top_answers: most_liked_posts.count }
         end
       end
     end
+    ordered_categories = response[:expert_categories].sort_by{ |a| a[:rank] }.reverse
+    response[:expert_categories] = ordered_categories
     render json: response
   end
 end

@@ -1,15 +1,13 @@
-.experts-container {
-  border: none;
+/* Topic experts */
+.experts-table thead {
+  display: none;
 }
-
-.experts-table{
-  width: 100%;
+.experts-table tbody {
+  color: #989899;
 }
-
-.experts-table-th {
-  text-align: left;
+.experts-posts, .experts-views, .experts-topanswers {
+  color: #3d3d3d;
 }
-
-.experts-table-td {
-  border: none;
+.experts-likes i.fa.fa-heart {
+  color: #ef2b2d!important;
 }

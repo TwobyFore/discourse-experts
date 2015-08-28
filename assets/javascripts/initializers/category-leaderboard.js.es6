@@ -32,7 +32,7 @@ export default {
               logoUrl = category.get('logo_url'),
               categoryUrl = Discourse.Category.slugFor(category),
               categoryName = Handlebars.Utils.escapeExpression(category.get('name'));
-          debugger
+
           if(typeof(category) == "string") {
             category = Discourse.Category.findBySlug(category.toLowerCase().replace(" ", "-"));
           }
