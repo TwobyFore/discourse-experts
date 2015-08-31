@@ -18,18 +18,19 @@ UsersController.class_eval do
 
         if target_list.any? { |item| item.user_id == user.id }
           posts_count = 0
-          views_count = 0
+          reads_count = 0
           likes_count = 0
           most_liked_posts = []
           cat.topics.each do |topic|
+            counter = topic.posts.where(user_id: user.id).select("sum(posts.like_count) as like_count, count(*) as count, sum(posts.reads) as reads")
             most_liked_post = topic.posts.order(like_count: :desc).first
             most_liked_posts << most_liked_post if most_liked_post.user_id == user.id
-            posts_count+= posts_count = topic.posts.where(user_id: user.id).count
-            views_count+= topic.views
-            likes_count+= topic.posts.where(user_id: user.id).sum(:like_count)
+            posts_count+= counter[0].count
+            reads_count+= counter[0].reads || 0
+            likes_count+= counter[0].like_count || 0
           end
           rank = target_list.find_index { |u| u.user_id = user.id }
-          response[:expert_categories] << { category: cat.name, rank: rank+1, posts: posts_count, likes: likes_count, views: views_count, top_answers: most_liked_posts.count }
+          response[:expert_categories] << { category: cat.name, rank: rank+1, posts: posts_count, likes: likes_count, reads: reads_count, top_answers: most_liked_posts.count }
         end
       end
     end
