@@ -12,10 +12,20 @@ export default Ember.Component.extend({
     var username = this.get('user').username;
 
     Discourse.User.findByUsername(username).then(function(res) {
-      var real_state_brokerage = res.user_fields[1];
-      var location = res.user_fields[3];
-      custom_fields.set("real_state_brokerage", real_state_brokerage);
-      custom_fields.set("location", location);
+      var real_state_brokerage = res.user_fields[2];
+      var location = res.user_fields[11];
+
+      if(real_state_brokerage) {
+        custom_fields.set("real_state_brokerage", real_state_brokerage);
+      } else {
+        custom_fields.set("real_state_brokerage", "");
+      }
+
+      if(location) {
+        custom_fields.set("location", location);
+      } else {
+        custom_fields.set("location", "");
+      }
     });
 
     return custom_fields;
