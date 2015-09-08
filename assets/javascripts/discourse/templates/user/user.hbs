@@ -62,6 +62,7 @@
 
           <div class="primary-textual">
             <h1>{{model.username}} {{user-status model currentUser=currentUser}}</h1>
+
             <h2>{{model.name}}</h2>
             {{#if model.title}}
               <h3>{{model.title}}</h3>
@@ -143,6 +144,7 @@
             </dd>
           {{/if}}
           {{profile-badge}}
+          {{custom-fields-data-profile user=model}}
           {{#if canDeleteUser}}
             {{d-button action="adminDelete" icon="exclamation-triangle" label="user.admin_delete" class="btn-danger"}}
           {{/if}}

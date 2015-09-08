@@ -11,3 +11,15 @@
 .experts-likes i.fa.fa-heart {
   color: #ef2b2d!important;
 }
+
+.post-user-location-profile {
+  font-size: 10px;
+  color: grey;
+  margin-right: 10px;
+}
+
+.post-user-real-state-brokerage-profile {
+  font-size: 10px;
+  color: grey;
+  margin-right: 10px;
+}
